@@ -1,0 +1,77 @@
+{
+  "id": "9df46372-c2bb-40aa-accf-d1c63ac5216d",
+  "version": "2.0",
+  "name": "CRIS-TEST",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "30367972-36db-404a-aa9a-a2ec34f2f74a",
+    "name": "TestPublicationView",
+    "commands": [{
+      "id": "dc2d51e6-4184-464e-accf-0e642c19063a",
+      "comment": "",
+      "command": "open",
+      "target": "/CRIS/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a2f04d12-9a97-4d01-8597-267e7a3b0a03",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1402x1027",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23f08302-3a73-4c65-b62a-8bc0d8b6f60a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=List researchers",
+      "targets": [
+        ["linkText=List researchers", "linkText"],
+        ["css=a", "css:finder"],
+        ["xpath=//a[contains(text(),'List researchers')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/CRIS/ResearchersListServlet')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'List researchers')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1a7508c2-4bc8-4f68-98d4-d1725cb07ebb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=7003501614",
+      "targets": [
+        ["linkText=7003501614", "linkText"],
+        ["css=tr:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'7003501614')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'ResearcherServlet?id=7003501614')]", "xpath:href"],
+        ["xpath=//td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'7003501614')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d2694297-8271-47fa-abc4-a00b1e147f85",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=70349446160",
+      "targets": [
+        ["linkText=70349446160", "linkText"],
+        ["css=tr:nth-child(2) > td:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'70349446160')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'PublicationServlet?id=70349446160')]", "xpath:href"],
+        ["xpath=//td[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'70349446160')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "89288938-e3ba-4254-8c65-30e19637525b",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["30367972-36db-404a-aa9a-a2ec34f2f74a"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}

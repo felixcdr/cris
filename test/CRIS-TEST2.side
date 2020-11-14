@@ -1,0 +1,265 @@
+{
+  "id": "d57cfb03-47fe-40ea-b94c-8f86df501732",
+  "version": "2.0",
+  "name": "CRIS-TEST2",
+  "url": "http://localhost:8080",
+  "tests": [{
+    "id": "4ab77ccb-f54d-488b-acc4-6adbd8bedb84",
+    "name": "TestLoginUpdateCiteCount",
+    "commands": [{
+      "id": "cdaa5460-fa74-4871-b684-feb2747355c1",
+      "comment": "",
+      "command": "open",
+      "target": "/CRIS/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f08725d6-35d3-4118-a6b6-16fade22b1aa",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1440x812",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "579b8791-ec73-4321-87b1-bdfc89e6b28e",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "01de23c6-475d-44b4-a3ce-73272c629364",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "juancarlos.duenas@upm.es"
+    }, {
+      "id": "36c5aad2-e15d-4c00-abc1-631d8a2aa205",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "an-jes00m"
+    }, {
+      "id": "122164b6-d62f-4e32-9ff6-c4114f5ce370",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "764c9955-bf27-456c-ab84-0ef75af0a94b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=70349446160",
+      "targets": [
+        ["linkText=70349446160", "linkText"],
+        ["css=tr:nth-child(2) > td:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'70349446160')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'PublicationServlet?id=70349446160')]", "xpath:href"],
+        ["xpath=//td[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'70349446160')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5de4ccf4-a341-4496-b2c3-3d94ce086adc",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=p > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'LogoutServlet')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "345308e1-a4c6-4490-9c3a-2a0aad7bab99",
+      "comment": "",
+      "command": "click",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cc19c0c4-35e8-42d6-967c-fa25947d52ff",
+      "comment": "",
+      "command": "type",
+      "target": "name=email",
+      "targets": [
+        ["name=email", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='email']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "root"
+    }, {
+      "id": "72a899c2-aacc-41b8-aab5-f0c4ca8fc947",
+      "comment": "",
+      "command": "click",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "03943b45-07cd-46c6-b427-bf861e3441e5",
+      "comment": "",
+      "command": "type",
+      "target": "name=password",
+      "targets": [
+        ["name=password", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "root"
+    }, {
+      "id": "2b547c3f-b302-4670-8c15-deaa9300252a",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c89733b5-ccae-40e0-8547-de95ca93428b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Researchers list",
+      "targets": [
+        ["linkText=Researchers list", "linkText"],
+        ["css=h3 > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Researchers list')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'ResearchersListServlet')]", "xpath:href"],
+        ["xpath=//h3/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Researchers list')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "31ce3d07-6eef-4ef2-9ece-6e54d930b3b5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=7003501614",
+      "targets": [
+        ["linkText=7003501614", "linkText"],
+        ["css=tr:nth-child(2) a", "css:finder"],
+        ["xpath=//a[contains(text(),'7003501614')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'ResearcherServlet?id=7003501614')]", "xpath:href"],
+        ["xpath=//td/a", "xpath:position"],
+        ["xpath=//a[contains(.,'7003501614')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f732aa8e-a562-410f-b4bd-01533baa61cb",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=70349446160",
+      "targets": [
+        ["linkText=70349446160", "linkText"],
+        ["css=tr:nth-child(2) > td:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'70349446160')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'PublicationServlet?id=70349446160')]", "xpath:href"],
+        ["xpath=//td[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'70349446160')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "aac58b9c-7a96-46be-b5c9-beb8ccfe8c86",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=70349446160",
+      "targets": [
+        ["linkText=70349446160", "linkText"],
+        ["css=a:nth-child(7)", "css:finder"],
+        ["xpath=//a[contains(text(),'70349446160')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'UpdateCitationsAPIServlet?id=70349446160')]", "xpath:href"],
+        ["xpath=//body/a", "xpath:position"],
+        ["xpath=//a[contains(.,'70349446160')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b7e74857-325a-4b1d-8841-23475bb2b8b5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Researchers list",
+      "targets": [
+        ["linkText=Researchers list", "linkText"],
+        ["css=h3 > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Researchers list')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'ResearchersListServlet')]", "xpath:href"],
+        ["xpath=//h3/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Researchers list')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c1c4be0e-2d6a-4c65-a0fc-32424e984721",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=p > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'LogoutServlet')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8dc265c8-6f59-48f6-a1a2-af423cf43efd",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "c1a263ed-550c-496f-9d4e-05b556348474",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["4ab77ccb-f54d-488b-acc4-6adbd8bedb84"]
+  }],
+  "urls": ["http://localhost:8080/"],
+  "plugins": []
+}
