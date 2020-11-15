@@ -46,7 +46,6 @@ deploy-to-gke:
     name: cris-gke
   script:
     - kubectl create secret docker-registry gitlab-registry --docker-server="$CI_REGISTRY" --docker-username="$CI_DEPLOY_USER" --docker-password="$CI_DEPLOY_PASSWORD" --docker-email="$GITLAB_USER_EMAIL" -o yaml --dry-run | kubectl apply -f -
-    - kubectl config set-context $(kubectl config current-context) --namespace=apsv
     - kubectl apply -f deployment.yaml
     - kubectl get deployments
     - kubectl get pods
