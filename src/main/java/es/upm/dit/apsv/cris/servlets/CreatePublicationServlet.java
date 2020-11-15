@@ -38,7 +38,7 @@ public class CreatePublicationServlet extends HttpServlet {
 			
 			ClientConfig config = new ClientConfig();
 	        Client client = ClientBuilder.newClient(config);
-	        client.target("http://localhost:8080/CRISSERVICE/rest/Publications/").request()
+	        client.target(URLHelper.getInstance().getCrisURL() + "/rest/Publications/").request()
 	                .post(Entity.entity(p, MediaType.APPLICATION_JSON), Response.class);
 
 			response.sendRedirect(request.getContextPath() + "/AdminServlet");

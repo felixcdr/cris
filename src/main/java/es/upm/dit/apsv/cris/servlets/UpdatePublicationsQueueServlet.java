@@ -26,7 +26,7 @@ public class UpdatePublicationsQueueServlet extends HttpServlet {
 		if ((id == null) || id.contentEquals(""))
 			getServletContext().getRequestDispatcher("/LoginView.jsp").forward(request, response);
         Client client = ClientBuilder.newClient(new ClientConfig());
-        client.target("http://localhost:8080/CRISSERVICE/rest/Researchers/" + id + "/UpdatePublications").request()
+        client.target(URLHelper.getInstance().getCrisURL() + "/rest/Researchers/" + id + "/UpdatePublications").request()
           		.post(Entity.entity(id, MediaType.APPLICATION_JSON), Response.class);
 		response.sendRedirect(request.getContextPath() + "/ResearcherServlet?id=" + id);
 	}

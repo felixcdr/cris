@@ -25,12 +25,12 @@ public class ResearcherServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = (String) request.getParameter("id");
         Client client = ClientBuilder.newClient(new ClientConfig());
-		Researcher ri = client.target("http://localhost:8080/CRISSERVICE/rest/Researchers/" + id).request()
+		Researcher ri = client.target(URLHelper.getInstance().getCrisURL() + "/rest/Researchers/" + id).request()
 				.accept(MediaType.APPLICATION_JSON)
 				.get(Researcher.class);	
 		request.setAttribute ("ri", ri);
 		
-		List<Publication> pubs  = client.target("http://localhost:8080/CRISSERVICE/rest/Researchers/" + id + "/Publications").request()
+		List<Publication> pubs  = client.target(URLHelper.getInstance().getCrisURL() + "/rest/Researchers/" + id + "/Publications").request()
 				.accept(MediaType.APPLICATION_JSON)
 				.get(new GenericType<List<Publication>>() {});
 		request.setAttribute ("pubs", pubs);

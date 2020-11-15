@@ -58,9 +58,9 @@ public class LoginServlet extends HttpServlet {
 					.post(Entity.entity(researcher, MediaType.APPLICATION_JSON), 
 						Response.class);
 			String token = resp.readEntity(JsonObject.class).get("token").toString();
-			// id-password authentication: target("http://localhost:8080/CRISSERVICE/rest/Researchers/password/").queryParam("password",password)
+			// id-password authentication: target(URLHelper.getInstance().getCrisURL() + "/rest/Researchers/password/").queryParam("password",password)
 			if ((token != null) && (token.length() > 0)) {
-				researcher = client.target("http://localhost:8080/CRISSERVICE/rest/Researchers/email/").queryParam("email", email).request()
+				researcher = client.target(URLHelper.getInstance().getCrisURL() + "/rest/Researchers/email/").queryParam("email", email).request()
 									.accept(MediaType.APPLICATION_JSON).get(Researcher.class); 
 			}
 		} catch(Exception e) {} 

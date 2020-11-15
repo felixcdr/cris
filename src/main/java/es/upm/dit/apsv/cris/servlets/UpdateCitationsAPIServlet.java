@@ -24,7 +24,7 @@ public class UpdateCitationsAPIServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pid = request.getParameter("id");	
         Client client = ClientBuilder.newClient(new ClientConfig());
-        client.target("http://localhost:8080/CRISSERVICE/rest/Publications/" + pid + "/UpdateCiteNumber").request()
+        client.target(URLHelper.getInstance().getCrisURL() + "/rest/Publications/" + pid + "/UpdateCiteNumber").request()
           		.post(Entity.entity(pid, MediaType.APPLICATION_JSON), Response.class);
 		response.sendRedirect(request.getContextPath()+"/PublicationServlet?id="+pid);
 	}

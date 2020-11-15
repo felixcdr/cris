@@ -23,7 +23,7 @@ public class ResearchersListServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Client client = ClientBuilder.newClient(new ClientConfig());
-		List<Researcher> researcherslist  = client.target("http://localhost:8080/CRISSERVICE/rest/Researchers")
+		List<Researcher> researcherslist  = client.target(URLHelper.getInstance().getCrisURL() + "/rest/Researchers")
 				.request().accept(MediaType.APPLICATION_JSON)
 				.get(new GenericType<List<Researcher>>() {});
 		request.setAttribute ("researcherslist", researcherslist);

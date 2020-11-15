@@ -22,7 +22,7 @@ public class PublicationServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pi = (String) request.getParameter("id");
         Client client = ClientBuilder.newClient(new ClientConfig());
-		Publication pub = client.target("http://localhost:8080/CRISSERVICE/rest/Publications/" + pi).request()
+		Publication pub = client.target(URLHelper.getInstance().getCrisURL() + "/rest/Publications/" + pi).request()
 				.accept(MediaType.APPLICATION_JSON)
 				.get(Publication.class);
 		request.setAttribute ("pub", pub);

@@ -37,7 +37,7 @@ public class CreateResearcherServlet extends HttpServlet {
 			n.setScopusURL(request.getParameter("scopusURL"));
 
 			Client client = ClientBuilder.newClient(new ClientConfig());
-	        client.target("http://localhost:8080/CRISSERVICE/rest/Researchers/").request()
+	        client.target(URLHelper.getInstance().getCrisURL() + "/rest/Researchers/").request()
 	                .post(Entity.entity(n, MediaType.APPLICATION_JSON), Response.class);
 			response.sendRedirect(request.getContextPath() + "/AdminServlet");
 		}
