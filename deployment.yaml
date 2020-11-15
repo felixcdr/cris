@@ -28,8 +28,45 @@ spec:
         app: cris
     spec:
       containers:
-      - name: crisservice
+      - name: cris
         image: registry.gitlab.com/cris-apsv-2021/cris
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+       - name: gitlab-registry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: crisservice-srv
+spec:
+  selector:
+    app: crisservice
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crisservice-dpl
+  labels:
+    app: crisservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: crisservice
+  template:
+    metadata:
+      labels:
+        app: crisservice
+    spec:
+      containers:
+      - name: crisservice
+        image: registry.gitlab.com/cris-apsv-2021/crisservice
         ports:
         - containerPort: 8080
       imagePullSecrets:
