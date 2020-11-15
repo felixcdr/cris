@@ -18,7 +18,7 @@ public class URLHelper {
 		if(envValue == null) //not in Kubernetes with a visible CRISSERVICE
 			restUrl = "http://localhost:8080/CRISSERVICE";
 		else //In k8, DNS service resolution in Kubernetes
-			restUrl = "http://criservice-srv/CRISSERVICE";
+			restUrl = "http://crisservice-srv/CRISSERVICE";
 	}
 	
 	public String getCrisURL() {
