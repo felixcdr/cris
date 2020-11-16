@@ -43,8 +43,8 @@ metadata:
   annotations:
     prometheus.io/scrape: 'true'
   labels:
-    application: ${CI_ENVIRONMENT_SLUG}
-    release: ${CI_ENVIRONMENT_SLUG}
+    application: cris-in-gke
+    release: cris-in-gke
 spec:
   selector:
     app: crisservice
