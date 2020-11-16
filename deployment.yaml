@@ -39,6 +39,12 @@ apiVersion: v1
 kind: Service
 metadata:
   name: crisservice-srv
+# === Prometheus annotations ===
+  annotations:
+    prometheus.io/scrape: 'true'
+  labels:
+    application: ${CI_ENVIRONMENT_SLUG}
+    release: ${CI_ENVIRONMENT_SLUG}
 spec:
   selector:
     app: crisservice
