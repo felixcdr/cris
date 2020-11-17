@@ -16,6 +16,9 @@ cache:
   paths:
     - .m2/repository
  
+include:
+  - template: Code-Quality.gitlab-ci.yml
+
 build-maven:
   stage: build
   script: 
