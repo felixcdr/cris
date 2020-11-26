@@ -50,6 +50,8 @@ deploy-to-gke:
   script:
     - kubectl create secret docker-registry gitlab-registry --docker-server="$CI_REGISTRY" --docker-username="$CI_DEPLOY_USER" --docker-password="$CI_DEPLOY_PASSWORD" --docker-email="$GITLAB_USER_EMAIL" -o yaml --dry-run | kubectl apply -f -
     - kubectl apply -f deployment.yaml
+    - kubectl rollout restart deployment/cris-dpl
+    - kubectl rollout restart deployment/crisservice-dpl
     - kubectl get deployments
     - kubectl get pods
 
