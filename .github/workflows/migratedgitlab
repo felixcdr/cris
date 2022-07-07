@@ -1,0 +1,28 @@
+name: Gitlab CI migration
+on: [push]
+env:
+  MAVEN_OPTS: "-Dhttps.protocols=TLSv1.2 -Dmaven.repo.local=$CI_PROJECT_DIR/.m2/repository -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.transfer.Slf4jMavenTransferListener=WARN -Dorg.slf4j.simpleLogger.showDateTime=true -Djava.awt.headless=true"
+  MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
+jobs:
+  build:
+    container: maven:3.3.9-jdk-8
+    uses: actions/cache@v3
+    with:
+        path: ~/.m2/repository
+    steps:
+      - run: mvn $MAVEN_CLI_OPTS compile
+  test:
+    needs: build
+    container: maven:3.3.9-jdk-8
+    steps:
+      - run: mvn $MAVEN_CLI_OPTS compile
+    uses: actions/cache@v3
+    with:
+        path: ~/target/CRIS-0.0.1-SNAPSHOT.war
+  upload:
+    needs: test
+    container: gcr.io/kaniko-project/executor:debug
+    steps:
+    - run: mkdir -p /kaniko/.docker
+    - run: echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - run: /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
