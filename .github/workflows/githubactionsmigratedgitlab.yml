@@ -27,6 +27,7 @@ jobs:
       run: mvn -B verify --file pom.xml
     - uses: actions/cache@v3
       with:
+        key: java-microservice
         path: ~/target/CRIS-0.0.1-SNAPSHOT.war
   upload:
     needs: verify-and-package
@@ -38,7 +39,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           registry: ghcr.io
-          username: "rguichard"
+          username: "felixcdr"
           password: ${{ secrets.PAT }}
-          repository: rguichard/helloworld
+          repository: felixcdr/cris
           tags: latest
