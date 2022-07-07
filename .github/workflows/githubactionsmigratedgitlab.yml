@@ -14,9 +14,6 @@ jobs:
         java-version: 14
     - name: Build project with Maven
       run: mvn -B compile --file pom.xml
-    - uses: actions/cache@v3
-      with:
-        path: ~/.m2/repository
   test:
     needs: build
     runs-on: ubuntu-latest
@@ -26,16 +23,21 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 14
-    - name: Build project with Maven
+    - name: Run all defined tests and generate war with Maven
       run: mvn -B verify --file pom.xml
     - uses: actions/cache@v3
       with:
         path: ~/target/CRIS-0.0.1-SNAPSHOT.war
   upload:
-    needs: test
     runs-on: ubuntu-latest
-    container: gcr.io/kaniko-project/executor:debug
     steps:
-    - run: mkdir -p /kaniko/.docker
-    - run: echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
-    - run: /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+      - name: "Build:checkout"
+        uses: actions/checkout@v2
+      - name: 'Build:dockerimage'
+        uses: docker/build-push-action@v1
+        with:
+          registry: ghcr.io
+          username: "rguichard"
+          password: ${{ secrets.PAT }}
+          repository: rguichard/helloworld
+          tags: latest
