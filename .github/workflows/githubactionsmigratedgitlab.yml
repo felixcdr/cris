@@ -5,22 +5,35 @@ env:
   MAVEN_CLI_OPTS: "--batch-mode --errors --fail-at-end --show-version -DinstallAtEnd=true -DdeployAtEnd=true"
 jobs:
   build:
-    container: maven:3.3.9-jdk-8
-    uses: actions/cache@v3
-    with:
-        path: ~/.m2/repository
+    runs-on: ubuntu-latest
     steps:
-      - run: mvn $MAVEN_CLI_OPTS compile
+    - uses: actions/checkout@v3
+    - name: Set up JDK 14
+      uses: actions/setup-java@v1
+      with:
+        java-version: 14
+    - name: Build project with Maven
+      run: mvn -B compile --file pom.xml
+    - uses: actions/cache@v3
+      with:
+        path: ~/.m2/repository
   test:
     needs: build
-    container: maven:3.3.9-jdk-8
+    runs-on: ubuntu-latest
     steps:
-      - run: mvn $MAVEN_CLI_OPTS compile
-    uses: actions/cache@v3
-    with:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 14
+      uses: actions/setup-java@v1
+      with:
+        java-version: 14
+    - name: Build project with Maven
+      run: mvn -B verify --file pom.xml
+    - uses: actions/cache@v3
+      with:
         path: ~/target/CRIS-0.0.1-SNAPSHOT.war
   upload:
     needs: test
+    runs-on: ubuntu-latest
     container: gcr.io/kaniko-project/executor:debug
     steps:
     - run: mkdir -p /kaniko/.docker
